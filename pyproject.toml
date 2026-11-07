@@ -9,10 +9,7 @@ dynamic = ["version"]
 description = "A tn-venv plugin that activates the new environment when creating a new one"
 readme = "README.md"
 requires-python = ">=3.11"
-# Proprietary license (see License.txt): recorded as an SPDX LicenseRef
-# because "Tokenoodle-Everything" is not an OSI/SPX-listed identifier.
-license = "Tokenoodle-Everything License"
-license-files = ["License.txt"]
+license = { file = "License.txt" }
 authors = [{ name = "Evan Yang", email = "quantbit@126.com" }]
 keywords = ["tn-venv", "virtualenv", "plugin", "activate", "shell"]
 classifiers = [
