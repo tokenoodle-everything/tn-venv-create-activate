@@ -11,6 +11,12 @@ $ tn-venv .venv
 (.venv) PS C:\project> exit     # ← back to your original shell, untouched
 ```
 
+## Install
+
+```bash
+pip install tn-venv-create-activate
+```
+
 ## Why a subshell?
 
 A child process cannot rewrite the environment block of its parent shell —
@@ -69,13 +75,6 @@ The plugin stays out of the way when it should:
 Shell detection without the override walks the process tree to find the
 nearest ancestor that is a known shell, then falls back to `$SHELL`
 (POSIX), `%ComSpec%` (Windows), and finally `/bin/sh`.
-
-## Development
-
-```console
-$ pip install -e .[dev]
-$ python -m pytest tests -q
-```
 
 ## License
 
