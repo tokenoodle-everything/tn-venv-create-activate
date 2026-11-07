@@ -1,5 +1,7 @@
 # tn-venv-create-activate
 
+![Official](https://img.shields.io/badge/official%20authorized-C0C0C0)
+
 A [tn-venv](https://github.com/tokenoodle-everything/tn-venv) plugin that
 activates the new environment when creating a new one.
 
