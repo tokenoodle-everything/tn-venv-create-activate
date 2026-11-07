@@ -1,0 +1,6 @@
+# tests/ is development-only: keep it out of the sdist (the wheel never
+# contains it — py-modules ships tn_venv_create_activate.py only).
+prune tests
+prune .github
+global-exclude *.py[cod]
+global-exclude */__pycache__/*

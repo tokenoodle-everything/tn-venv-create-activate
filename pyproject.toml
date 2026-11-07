@@ -1,12 +1,38 @@
 [build-system]
-requires = ["setuptools>=68"]
+# setuptools>=77 for PEP 639 license metadata (License-Expression).
+requires = ["setuptools>=77"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "tn-venv-create-activate"
-version = "0.1.0"
-description = "A tn-venv plugin that activate the new environment when create a new one"
+dynamic = ["version"]
+description = "A tn-venv plugin that activates the new environment when creating a new one"
+readme = "README.md"
 requires-python = ">=3.11"
+# Proprietary license (see License.txt): recorded as an SPDX LicenseRef
+# because "Tokenoodle-Everything" is not an OSI/SPX-listed identifier.
+license = "Tokenoodle-Everything License"
+license-files = ["License.txt"]
+authors = [{ name = "Evan Yang", email = "quantbit@126.com" }]
+keywords = ["tn-venv", "virtualenv", "plugin", "activate", "shell"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Software Development :: Build Tools",
+]
+
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/tokenoodle-everything/tn-venv-create-activate"
+Source = "https://github.com/tokenoodle-everything/tn-venv-create-activate"
 
 # The entry-point group "tn_venv.plugins" is a hard-coded constant
 # (see tn_venv.plugins.PLUGIN_ENTRY_POINT). The value on the right
@@ -15,5 +41,22 @@ requires-python = ">=3.11"
 [project.entry-points."tn_venv.plugins"]
 create_activate_plugin = "tn_venv_create_activate:CreateActivatePlugin"
 
-[tool.setuptools.packages.find]
-where = ["."]
+# Single-module project: ship tn_venv_create_activate.py. The version is
+# read from the module (statically, via AST) so it lives in exactly one
+# place; py-modules belongs directly under [tool.setuptools] — it is NOT
+# a key of [tool.setuptools.packages.find].
+[tool.setuptools]
+py-modules = ["tn_venv_create_activate"]
+
+[tool.setuptools.dynamic]
+version = { attr = "tn_venv_create_activate.__version__" }
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py314"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "RUF"]
