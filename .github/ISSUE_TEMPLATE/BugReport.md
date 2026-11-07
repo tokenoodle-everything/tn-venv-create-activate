@@ -27,7 +27,7 @@ What actually happened, including the full traceback if applicable.
 **Environment**
 
 - Python version (`python --version`):
-- `tn_venv_demo_plugin` version:
+- `tn-venv-create-activate` version:
 - `tn-venv` version:
 - Operating system:
 
